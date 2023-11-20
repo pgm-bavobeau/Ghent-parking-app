@@ -1,12 +1,9 @@
 "use client";
 import GarageList from '@/components/GarageList';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
-export default function Home() {
-  const [data, setData] = useState(null)
-  const [isLoading, setLoading] = useState(true)
-  
+export default function Home() {  
   const router = useRouter();
 
   useEffect(() => {
