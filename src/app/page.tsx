@@ -1,9 +1,12 @@
 "use client";
-import UserForm from '@/components/UserForm'
+import GarageList from '@/components/GarageList';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [data, setData] = useState(null)
+  const [isLoading, setLoading] = useState(true)
+  
   const router = useRouter();
 
   useEffect(() => {
@@ -12,10 +15,10 @@ export default function Home() {
       router.push('/profile');
     }
   }, [router]);
-  
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Test
+      <GarageList />
     </main>
   )
 }
