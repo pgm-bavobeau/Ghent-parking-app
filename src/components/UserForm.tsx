@@ -30,6 +30,11 @@ const UserForm = () => {
     localStorage.setItem("userData", JSON.stringify(data));
   }
 
+  function handleDelete(event: React.MouseEvent<HTMLButtonElement>) {
+    event.preventDefault();
+    localStorage.removeItem("userData");
+  }
+
   return (
     <div className="flex flex-col items-center min-h-screen">
       <form className="max-w-md mx-auto">
@@ -94,12 +99,20 @@ const UserForm = () => {
           required
         />
       </form>
-      <button
-        onClick={(event) => handleSubmit(event)}
-        className="bg-blue-500 text-white px-4 py-2 rounded-md"
-      >
-        Submit
-      </button>
+      <div className="flex gap-11">
+        <button
+          onClick={(event) => handleSubmit(event)}
+          className="bg-blue-500 text-white px-4 py-2 rounded-md"
+        >
+          Submit
+        </button>
+        <button
+          onClick={(event) => handleDelete(event)}
+          className="bg-red-500 text-white px-4 py-2 rounded-md"
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 };
